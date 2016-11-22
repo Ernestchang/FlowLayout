@@ -21,7 +21,9 @@ import java.util.Set;
 public class TagFlowLayout extends FlowLayout implements TagAdapter.OnDataChangedListener
 {
     private TagAdapter mTagAdapter;
+    // could be selected
     private boolean mAutoSelectEffect = true;
+    // the largest selected tags number
     private int mSelectedMax = -1;//-1为不限制数量
     private static final String TAG = "TagFlowLayout";
     private MotionEvent mMotionEvent;
@@ -126,6 +128,8 @@ public class TagFlowLayout extends FlowLayout implements TagAdapter.OnDataChange
 //            lp.bottomMargin = clp.bottomMargin;
 //            lp.leftMargin = clp.leftMargin;
 //            lp.rightMargin = clp.rightMargin;
+
+            // child could be checked with parent
             tagView.setDuplicateParentStateEnabled(true);
             if (tagView.getLayoutParams() != null)
             {

@@ -6,7 +6,9 @@ import android.widget.Checkable;
 import android.widget.FrameLayout;
 
 /**
- * Created by zhy on 15/9/10.
+ * model code for add a custom state to custom view.
+ * also use #tagView.setDuplicateParentStateEnabled(true) to set parent's state to child,
+ * so child can chang state by selector
  */
 public class TagView extends FrameLayout implements Checkable
 {
@@ -23,9 +25,11 @@ public class TagView extends FrameLayout implements Checkable
         return getChildAt(0);
     }
 
+    // add custom state
     @Override
     public int[] onCreateDrawableState(int extraSpace)
     {
+        // model code
         int[] states = super.onCreateDrawableState(extraSpace + 1);
         if (isChecked())
         {
